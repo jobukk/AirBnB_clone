@@ -140,6 +140,7 @@ class Test_State(unittest.TestCase):
         update = st.updated_at
         st.save()
         self.assertLess(update, st.updated_at)
+
     def test_to_dict_created_at_format(self):
         """checks the ISO formatted string"""
         st = self.state.to_dict()

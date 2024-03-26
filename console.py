@@ -195,7 +195,7 @@ class HBNBCommand(cmd.Cmd):
     def handle_dict(self, clsname, objid, d):
         """handle dictionary update"""
         for k, v in d.items():
-            self.do_update(" ".join([clsname, objid, str(k), str(v)])) 
+            self.do_update(" ".join([clsname, objid, str(k), str(v)]))
 
     @staticmethod
     def count_class(clsname):
@@ -204,7 +204,7 @@ class HBNBCommand(cmd.Cmd):
         for k, v in storage.all().items():
             if type(v).__name__ == clsname:
                 c += 1
-        return (c)           
+        return (c)
 
 
 if __name__ == '__main__':

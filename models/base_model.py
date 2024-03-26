@@ -41,7 +41,7 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """Convert data to dictionary"""        
+        """Convert data to dictionary"""
         dict = self.__dict__.copy()
         instance = self.__class__.__name__
         dict["__class__"] = instance

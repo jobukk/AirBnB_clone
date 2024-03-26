@@ -24,7 +24,10 @@ class TestHBNBCommand(unittest.TestCase):
     def test_help_quit(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.console.help_quit()
-            self.assertIn("Quit command to exit the program", fake_out.getvalue())
+            self.assertIn(
+                "Quit command to exit the program",
+                fake_out.getvalue()
+            )
 
     def test_do_create(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:

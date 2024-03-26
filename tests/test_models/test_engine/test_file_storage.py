@@ -11,7 +11,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from file_storage import FileStorage  # Assuming your FileStorage class is in a file named 'file_storage.py'
+from file_storage import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
@@ -49,12 +49,16 @@ class TestFileStorage(unittest.TestCase):
         obj = BaseModel()
         self.storage.new(obj)
         self.storage.save()
-        mock_open.assert_called_once_with(self.storage._FileStorage__file_path, 'w')
+        file_path = self.storage._FileStorage__file_path
+        mock_open.assert_called_once_with(file_path, 'w')
 
     @patch('builtins.open', new_callable=unittest.mock.mock_open)
     def test_reload(self, mock_open):
         data = {'BaseModel.1': {'id': '1', 'name': 'Test'}}
-        mock_open.return_value.__enter__.return_value.read.return_value = json.dumps(data)
+        mock_file = mock_open.return_value
+        mock_file_context = mock_file.__enter__.return_value
+        mock_file_context.read.return_value = json.dumps(data)
+
         self.storage.reload()
         self.assertIn('BaseModel.1', self.storage.all())
 

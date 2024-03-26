@@ -73,5 +73,6 @@ class TestBaseModel(unittest.TestCase):
         bm.save()
         self.assertLess(update2, bm.updated_at)
 
+
 if __name__ == '__main__':
     unittest.main()

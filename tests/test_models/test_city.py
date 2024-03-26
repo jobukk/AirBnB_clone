@@ -15,7 +15,6 @@ class Test_city(unittest.TestCase):
     def setUp(self):
         """
         a setup method to create city object to be tested
-        
         """
 
         self.city_obj = city.City()
@@ -23,7 +22,7 @@ class Test_city(unittest.TestCase):
     def tearDown(self):
         """
          teardown method that deletes the city object
-        
+
         """
         del self.city_obj
 
@@ -58,12 +57,12 @@ class Test_city(unittest.TestCase):
         self.assertIn('updated_at', obj_dict)
 
         def test_save(self):
-        """tests the effectivity of timestamp updates"""
-        cty = city.City()
-        sleep(0.1)
-        update = cty.updated_at
-        cty.save()
-        self.assertLess(update, cty.updated_at)
+            """tests the effectivity of timestamp updates"""
+            cty = city.City()
+            sleep(0.1)
+            update = cty.updated_at
+            cty.save()
+            self.assertLess(update, cty.updated_at)
 
     def test_two_saves(self):
         """tests the effectivity of different timestamps updates"""
@@ -75,7 +74,7 @@ class Test_city(unittest.TestCase):
         self.assertLess(upadte1, update2)
         sleep(0.1)
         cty.save()
-        self.assertLess(update2, cty.updated_at)    
+        self.assertLess(update2, cty.updated_at)
 
 
 if '__name__' == '__main__':

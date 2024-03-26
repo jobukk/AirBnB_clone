@@ -200,6 +200,6 @@ class Test_Review(unittest.TestCase):
         self.assertIn("created_at", rv.to_dict())
         self.assertIn("updated_at", rv.to_dict())
 
-    
+
 if __name__ == "__main__":
     unittest.main()

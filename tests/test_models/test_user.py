@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-"""Unittest module for the User Class."""
-"""Defines unittests for models/user.py.
-Unittest classes:
-    TestUser_instantiation    
-"""
+
 import os
 import models
 from models.user import User
 import unittest
 from datetime import datetime
 from time import sleep
+"""Unittest module for the User Class."""
+"""Defines unittests for models/user.py.
+Unittest classes:
+    TestUser_instantiation
+"""
 
 
 class TestUser_instantiation(unittest.TestCase):
