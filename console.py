@@ -154,6 +154,14 @@ class HBNBCommand(cmd.Cmd):
             print("No such attribute:", attrname)
         storage.save()
 
+    @static method
+    def do_count(clsname):
+        obj = storage.all()
+        count = 0
+        for a, b in obj.items():
+            if type(b).__name__ == clsname:
+                count += 1
+        return(count)    
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
