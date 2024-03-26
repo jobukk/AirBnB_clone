@@ -103,9 +103,10 @@ class HBNBCommand(cmd.Cmd):
         else:
             objl = []
             for k, v in obj.items():
-                objl.append(str(v))
+                if type(v) is self.__classes.get(arg[0]):
+                    objl.append(str(v))
             print(objl)
-
+    
     def do_update(self, line):
         """update <class name> <id> <attribute name> "<attribute value>"""
         arg = line.split()
