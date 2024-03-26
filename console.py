@@ -152,16 +152,7 @@ class HBNBCommand(cmd.Cmd):
             print("Attribute updated successfully")
         else:
             print("No such attribute:", attrname)
-        storage.save()
-
-    @static method
-    def do_count(clsname):
-        obj = storage.all()
-        count = 0
-        for a, b in obj.items():
-            if type(b).__name__ == clsname:
-                count += 1
-        return(count)    
+        storage.save()      
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
