@@ -99,10 +99,11 @@ class HBNBCommand(cmd.Cmd):
         obj = storage.all()
         if arg[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
+            return False
         elif len(arg) == 1:
             objl = []
-            for obj in storage.all().values():
-                objl.append(obj.__str__())
+            for k, v in obj.items():
+                objl.append(str(v))
             print(objl)
 
     def do_update(self, line):
