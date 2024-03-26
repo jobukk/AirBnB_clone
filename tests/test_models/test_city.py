@@ -59,7 +59,7 @@ class Test_city(unittest.TestCase):
 
         def test_save(self):
         """tests the effectivity of timestamp updates"""
-        cty = City()
+        cty = city.City()
         sleep(0.1)
         update = cty.updated_at
         cty.save()
@@ -67,7 +67,7 @@ class Test_city(unittest.TestCase):
 
     def test_two_saves(self):
         """tests the effectivity of different timestamps updates"""
-        cty = City()
+        cty = city.City()
         sleep(0.1)
         upadte1 = cty.updated_at
         cty.save()
