@@ -57,6 +57,26 @@ class Test_city(unittest.TestCase):
         self.assertIn('created_at', obj_dict)
         self.assertIn('updated_at', obj_dict)
 
+        def test_save(self):
+        """tests the effectivity of timestamp updates"""
+        cty = City()
+        sleep(0.1)
+        update = cty.updated_at
+        cty.save()
+        self.assertLess(update, cty.updated_at)
+
+    def test_two_saves(self):
+        """tests the effectivity of different timestamps updates"""
+        cty = City()
+        sleep(0.1)
+        upadte1 = cty.updated_at
+        cty.save()
+        update2 = cty.updated_at
+        self.assertLess(upadte1, update2)
+        sleep(0.1)
+        cty.save()
+        self.assertLess(update2, cty.updated_at)    
+
 
 if '__name__' == '__main__':
     unittest.main()
