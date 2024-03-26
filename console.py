@@ -139,21 +139,15 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) == 3:
             print('** value missing **')
             return False
-
         obj_key = "{}.{}".format(clsname, objid)
         obj = obj.get(obj_key)
         if obj is None:
             print("** no instance found **")
-            return False
-
-        if attrname in obj:
-            print(obj)
-            obj[attrname] = attrval
-            print(obj)
-
-            print("Attribute updated successfully")
-        else:
-            print("No such attribute:", attrname)
+            return False        
+        print(obj)        
+        setattr(obj, attrname, attrval)            
+        print("Attribute updated successfully")
+        print(obj)        
         storage.save()      
 
 if __name__ == '__main__':
