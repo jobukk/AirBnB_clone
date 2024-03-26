@@ -53,6 +53,25 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.model.name, new_model.name)
         self.assertEqual(self.model.my_number, new_model.my_number)
 
+    def test_save(self):
+        """tests the effective of timestamp updates"""
+        bm = BaseModel()
+        sleep(0.1)
+        update = bm.updated_at
+        bm.save()
+        self.assertLess(update, bm.updated_at)
+
+    def test_two_saves(self):
+        """tests the effectivity of diffrent timestamps updates"""
+        bm = BaseModel()
+        sleep(0.1)
+        upadte1 = bm.updated_at
+        bm.save()
+        update2 = bm.updated_at
+        self.assertLess(upadte1, update2)
+        sleep(0.1)
+        bm.save()
+        self.assertLess(update2, bm.updated_at)
 
 if __name__ == '__main__':
     unittest.main()
