@@ -91,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             del obj["{}.{}".format(arg[0], arg[1])]
-        storage.save()    
+        storage.save()
 
     def do_all(self, line):
         """$ all"""
@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
                 if type(v) is self.__classes.get(arg[0]):
                     objl.append(str(v))
             print(objl)
-    
+
     def do_update(self, line):
         """update <class name> <id> <attribute name> "<attribute value>"""
         arg = line.split()
@@ -143,12 +143,13 @@ class HBNBCommand(cmd.Cmd):
         obj = obj.get(obj_key)
         if obj is None:
             print("** no instance found **")
-            return False        
-        print(obj)        
-        setattr(obj, attrname, attrval)            
+            return False
+        print(obj)
+        setattr(obj, attrname, attrval)
         print("Attribute updated successfully")
-        print(obj)        
-        storage.save()      
+        print(obj)
+        storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
