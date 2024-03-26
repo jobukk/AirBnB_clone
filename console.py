@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
         if arg[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return False
-        elif len(arg) == 1:
+        else:
             objl = []
             for k, v in obj.items():
                 objl.append(str(v))
