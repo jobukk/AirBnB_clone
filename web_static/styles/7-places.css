@@ -1,0 +1,33 @@
+.places h1 {
+    font-size: 30px;
+}
+
+.places>article>h2{
+    font-size: 30px;
+
+}
+
+.places{
+    position: absolute;
+    top: 10rem
+}
+
+.places>article{
+    border: 1px solid #FF5A5F;
+    height: 48px;
+    width: 200px;
+    border-radius: 4px;
+}
+
+.article-one{
+
+}
+
+.article-one{
+    position: absolute;
+    left: 20rem;
+}
+
+.article-one{
+    
+}
